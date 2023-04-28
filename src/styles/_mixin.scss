@@ -1,0 +1,7 @@
+@mixin responsive ($map, $width) {
+  @each $size, $columns in $map {
+    @media (max-width: $size) {
+      grid-template-columns: repeat($columns, $width);
+    }
+  }
+}
