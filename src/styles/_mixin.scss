@@ -1,7 +1,17 @@
-@mixin responsive ($map, $width) {
-  @each $size, $columns in $map {
-    @media (max-width: $size) {
-      grid-template-columns: repeat($columns, $width);
-    }
+@mixin onPhone {
+  @media (min-width: $media-mobile) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $media-tablet) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $media-desktop) {
+    @content;
   }
 }

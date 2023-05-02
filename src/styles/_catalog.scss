@@ -1,13 +1,23 @@
 .catalog {
   display: grid;
-  grid-template-columns: repeat(auto-fill, $card-width);
+  grid-template-columns: $card-width;
   justify-content: center;
   gap: $card-gap;
 
   max-width: 944px;
   margin: 0 auto;
 
-  @include responsive ($media-columns, $card-width);
+  @include onPhone {
+    grid-template-columns: repeat(2, $card-width);
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(3, $card-width);
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(4, $card-width);
+  }
 
   &__card {
     display: flex;
